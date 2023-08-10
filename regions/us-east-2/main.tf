@@ -1,10 +1,10 @@
-# configure aws provider
+# Configure aws provider
 provider "aws" {
   region  = var.region
   profile = "default"
 }
 
-# create VPC
+# Create VPC
 module "vpc" {
 
   source                 = "../../modules/vpc"
@@ -15,7 +15,7 @@ module "vpc" {
 
 }
 
-# create Security Group
+# Create Security Group
 module "security_group" {
 
   source = "../../modules/security-groups"
@@ -23,7 +23,7 @@ module "security_group" {
 
 }
 
-# create key pair
+# Create key pair
 module "key_pair" {
 
   source = "../../modules/key_pair"
@@ -31,7 +31,7 @@ module "key_pair" {
 
 }
 
-# create EC2 instance
+# Create EC2 instance
 module "ec2_instance" {
 
   source                    = "../../modules/ec2"
