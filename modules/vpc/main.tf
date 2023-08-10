@@ -1,4 +1,4 @@
-# create VPC
+# Create VPC
 resource "aws_vpc" "vpc" {
   cidr_block           = var.vpc_cidr
   instance_tenancy     = "default"
@@ -9,7 +9,7 @@ resource "aws_vpc" "vpc" {
   }
 }
 
-# create internet gateway and attach it to vpc
+# Create internet gateway and attach it to VPC
 resource "aws_internet_gateway" "internet_gateway" {
   vpc_id = aws_vpc.vpc.id
 
@@ -18,10 +18,10 @@ resource "aws_internet_gateway" "internet_gateway" {
   }
 }
 
-# use data source to get all avalablility zones in region
+# Use data source to get all avalablility zones in region
 data "aws_availability_zones" "available_zones" {}
 
-# create public subnet 
+# Create public subnet 
 resource "aws_subnet" "public_subnet_az1" {
   vpc_id                  = aws_vpc.vpc.id
   cidr_block              = var.public_subnet_az1_cidr
@@ -33,7 +33,7 @@ resource "aws_subnet" "public_subnet_az1" {
   }
 }
 
-# create route table and add public route
+# Create route table and add public route
 resource "aws_route_table" "public_route_table" {
   vpc_id = aws_vpc.vpc.id
 

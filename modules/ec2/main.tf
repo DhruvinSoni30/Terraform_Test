@@ -15,7 +15,7 @@ data "aws_ami" "amazon_linux_2" {
   owners = ["099720109477"]
 }
 
-# create EC2 instance in public subnet
+# Create EC2 instance in public subnet
 resource "aws_instance" "demo_instance_public_1" {
 
   ami                    = data.aws_ami.amazon_linux_2.id
@@ -31,5 +31,5 @@ resource "aws_instance" "demo_instance_public_1" {
 
 }
 
-# AZ
+# Using data source to fetch the AZ
 data "aws_availability_zones" "az" {}
